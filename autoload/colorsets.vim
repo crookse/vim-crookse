@@ -1,12 +1,10 @@
 " Below is a list of color sets that can be used for the terminal and gui.
 "
-
-if exists("g:crookse.colorsets")
+if exists("g:crookse.colorsets") && g:crookse.colorsets
 	finish
 endif
 
 " Define the colorsets group
-let g:crookse = {}
 let g:crookse.colorsets = {}
 
 "                             +--------------+------------------+
