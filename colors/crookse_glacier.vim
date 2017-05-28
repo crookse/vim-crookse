@@ -61,7 +61,7 @@ endif
 
 " Set syntax colors
 execute "highlight Comment "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.000[s:index] . " " 
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.240[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight Constant "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.010[s:index] . " "
