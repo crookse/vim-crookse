@@ -53,6 +53,7 @@ if has("gui_running")
 		\. s:ui_mode . "bg=" . s:color.guibg . " "
 		\. s:ui_mode . "=none"
 else
+" The background for non-gui mode is controlled by iterm
     execute "highlight Normal "
 		\. s:ui_mode . "fg=" . g:crookse.colorsets.015[s:index] . " "
 		\. s:ui_mode . "=none"
@@ -92,14 +93,12 @@ execute "highlight String "
 
 " Set VIM UI colors
 execute "highlight ColorColumn "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.236[s:index]
 execute "highlight Cursor "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.011[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.005[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight CursorLine "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.236[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight Folded "
@@ -117,7 +116,7 @@ execute "highlight NonText "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.000[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight SpecialKey "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.236[s:index] . " "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.235[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight StatusLine "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.004[s:index] . " "
@@ -145,4 +144,3 @@ execute "highlight! VertSplit "
 
 " }}
 
-set background=dark
