@@ -116,13 +116,18 @@ execute "highlight StatusLineNC "
 	\. s:ui_mode . "=none"
 execute "highlight TabLine "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index] . " "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.236[s:index]
+	\. s:ui_mode . "bg=" . g:crookse.colorsets.232[s:index] . " "
+	\. s:ui_mode . "=none"
 execute "highlight TabLineFill "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.255[s:index]
 execute "highlight TabLineSel "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.148[s:index]
+	\. s:ui_mode . "bg=" . g:crookse.colorsets.148[s:index] . " "
+	\. s:ui_mode . "=none"
+execute "highlight TabLineSelInvert "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
+	\. s:ui_mode . "bg=" . g:crookse.colorsets.255[s:index]
 execute "highlight Title "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.001[s:index]
 execute "highlight! VertSplit "
