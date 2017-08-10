@@ -258,6 +258,8 @@ execute "highlight phpStaticClasses "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index]
 execute "highlight phpStringDelimiter "
 	\. s:ui_mode . "fg=" . s:langDefaultString
+execute "highlight phpStringDouble "
+	\. s:ui_mode . "fg=" . s:langDefaultString
 execute "highlight phpStringSingle "
 	\. s:ui_mode . "fg=" . s:langDefaultString
 
