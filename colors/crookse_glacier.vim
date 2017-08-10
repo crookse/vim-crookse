@@ -130,8 +130,8 @@ execute "highlight TabLineSelected "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.148[s:index] . " "
 	\. s:ui_mode . "=bold"
 execute "highlight TabLineUnselected "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.255[s:index]
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index] . " "
+	\. s:ui_mode . "bg=" . g:crookse.colorsets.240[s:index]
 execute "highlight Title "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.001[s:index]
 execute "highlight! VertSplit "
@@ -173,6 +173,9 @@ execute "highlight Special "
 	\. s:ui_mode . "=none"
 execute "highlight String "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.011[s:index] . " "
+	\. s:ui_mode . "=none"
+execute "highlight vimString "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.222[s:index] . " "
 	\. s:ui_mode . "=none"
 
 " HTML
