@@ -179,6 +179,12 @@ execute "highlight vimString "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.222[s:index] . " "
 	\. s:ui_mode . "=none"
 
+" CSS
+execute "highlight cssAttributeSelector "
+	\. s:ui_mode . "fg=" . s:langDefaultString
+execute "highlight cssStringQQ "
+	\. s:ui_mode . "fg=" . s:langDefaultString
+
 " HTML
 execute "highlight htmlArg "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.010[s:index] . " "
@@ -200,6 +206,10 @@ execute "highlight htmlEndTag "
 	\. s:ui_mode . "=none"
 execute "highlight htmlBold "
 	\. s:ui_mode . "=none"
+execute "highlight htmlLink "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index]
+execute "highlight htmlString "
+	\. s:ui_mode . "fg=" . s:langDefaultString
 
 " JavaScript
 execute "highlight jsCommentTodo "
