@@ -70,6 +70,7 @@ let s:langDefaultFuncCallFg    = g:crookse.colorsets.208[s:index]
 let s:langDefaultVariableFg    = g:crookse.colorsets.013[s:index]
 let s:langDefaultDataTypeDefFg = g:crookse.colorsets.012[s:index]
 let s:langDefaultHtmlTagFg     = g:crookse.colorsets.074[s:index]
+let s:langDefaultString        = g:crookse.colorsets.222[s:index]
 
 let s:commentTodoFg = g:crookse.colorsets.255[s:index]
 let s:commentTodoBg = g:crookse.colorsets.199[s:index]
@@ -210,6 +211,8 @@ execute "highlight jsFunctionKey "
 	\. s:ui_mode . "fg=" . s:jsObjectKey
 execute "highlight jsFuncCall "
 	\. s:ui_mode . "fg=" . s:langDefaultFuncCallFg
+execute "highlight jsString "
+	\. s:ui_mode . "fg=" . s:langDefaultString
 execute "highlight jsVariableDef "
 	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
 execute "highlight jsStorageClass "
@@ -253,6 +256,10 @@ execute "highlight phpRegion "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index]
 execute "highlight phpStaticClasses "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index]
+execute "highlight phpStringDelimiter "
+	\. s:ui_mode . "fg=" . s:langDefaultString
+execute "highlight phpStringSingle "
+	\. s:ui_mode . "fg=" . s:langDefaultString
 
 " }}
 
