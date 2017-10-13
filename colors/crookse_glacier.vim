@@ -65,6 +65,10 @@ endif
 
 " Keep these in descending order by color value
 
+" By color name
+let s:white  = g:crookse.colorsets.255[s:index]
+let s:yellow = g:crookse.colorsets.227[s:index]
+
 " Default language colors
 let s:langDefaultFuncCallFg    = g:crookse.colorsets.208[s:index]
 let s:langDefaultVariableFg    = g:crookse.colorsets.013[s:index]
@@ -75,6 +79,10 @@ let s:langDefaultString        = g:crookse.colorsets.222[s:index]
 let s:commentTodoFg = g:crookse.colorsets.255[s:index]
 let s:commentTodoBg = g:crookse.colorsets.199[s:index]
 let s:jsObjectKey   = g:crookse.colorsets.074[s:index]
+
+" let s:langDefaultSuccessBackground = g:crookse.colorsets.079[s:index]
+" let s:langDefaultSuccessForeground = g:crookse.colorsets.065[s:index]
+let s:langDefaultSuccessForeground = g:crookse.colorsets.010[s:index]
 
 "///////////////////////////////////////////////////////////////////////////////
 "// VIM UI COLORS //////////////////////////////////////////////////////////////
@@ -144,6 +152,12 @@ execute "highlight! VertSplit "
 "// FILE-SPECIFIC SYNTAX HIGHLIGHTING //////////////////////////////////////////
 "///////////////////////////////////////////////////////////////////////////////
 
+" Apache
+execute "highlight apacheString "
+	\. s:ui_mode . "fg=" . s:langDefaultString
+execute "highlight apacheOrderValue "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index]
+
 " VIM
 execute "highlight Comment "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.240[s:index] . " "
@@ -173,10 +187,10 @@ execute "highlight Special "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.010[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight String "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.011[s:index] . " "
+	\. s:ui_mode . "fg=" . s:langDefaultString . " "
 	\. s:ui_mode . "=none"
 execute "highlight vimString "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.222[s:index] . " "
+	\. s:ui_mode . "fg=" . s:langDefaultString . " "
 	\. s:ui_mode . "=none"
 
 " CSS
@@ -261,7 +275,7 @@ execute "highlight phpClass "
 execute "highlight phpFunction "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.074[s:index]
 execute "highlight phpFunctions "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index]
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.004[s:index]
 execute "highlight phpRegion "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index]
 execute "highlight phpStaticClasses "
@@ -275,3 +289,21 @@ execute "highlight phpStringSingle "
 
 " }}
 
+"///////////////////////////////////////////////////////////////////////////////
+"// GIT UI COLORS //////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////
+
+execute "highlight diffFile "
+	\. s:ui_mode . "fg=" . s:white
+execute "highlight diffNewFile "
+	\. s:ui_mode . "fg=" . s:yellow
+execute "highlight diffIndexLine "
+	\. s:ui_mode . "fg=" . s:white
+execute "highlight diffLine "
+	\. s:ui_mode . "fg=" . s:white
+execute "highlight diffAdded "
+	\. s:ui_mode . "fg=" . s:langDefaultSuccessForeground
+execute "highlight diffRemoved "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.005[s:index]
+execute "highlight gitcommitDiff "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.238[s:index]
