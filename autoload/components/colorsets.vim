@@ -26,6 +26,7 @@ function! components#colorsets#Load()
 	let g:crookse.colorsets.013 = [  13          ,  '#ff00ff'       ] " (000, 000, 000)
 	let g:crookse.colorsets.014 = [  14          ,  '#00ffff'       ] " (000, 000, 000)
 	let g:crookse.colorsets.015 = [  15          ,  '#ffffff'       ] " (000, 000, 000)
+	"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 	let g:crookse.colorsets.016 = [  16          ,  '#000000'       ] " (  0,   0,   0)
 	let g:crookse.colorsets.017 = [  17          ,  '#00005f'       ] " (  0,   0,  95)
 	let g:crookse.colorsets.018 = [  18          ,  '#000087'       ] " (000, 000, 000)

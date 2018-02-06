@@ -1,4 +1,3 @@
-" -----------------------------------------------------------------------------
 " File: crookse_glacier.vim
 " Description: A flat, colorful theme/scheme combo for VIM
 " Credits: Brian Ward <twitter: @brianward>, Joey Figaro <twitter: @joeyfigaro>
@@ -6,10 +5,8 @@
 " Last Modified: 26 Jun 2014
 " -----------------------------------------------------------------------------
 
-" ***THIS IS A WORK IN PROGRESS***
-
 " Note: This theme uses g:crookse.colorsets from:
-" ~/.dotfiles/.vim/crookse/plugin/colorsets.vim
+" ~/.dotfiles/.vim/bundle/vim-crookse/autoload/components/colorsets.vim
 " Place cursor over the path and type <C-w>f to go to the file
 
 " Initialization {{
@@ -59,9 +56,9 @@ else
 		\. s:ui_mode . "=none"
 endif
 
-"///////////////////////////////////////////////////////////////////////////////
-"// COMMON VARIABLES/HIGHLIGHT COLORS //////////////////////////////////////////
-"///////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+"// COMMON VARIABLES/HIGHLIGHT COLORS //////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
 
 " Keep these in descending order by color value
 
@@ -71,43 +68,52 @@ let s:yellow = g:crookse.colorsets.227[s:index]
 
 " Default language colors
 let s:langDefaultFuncCallFg    = g:crookse.colorsets.208[s:index]
-let s:langDefaultVariableFg    = g:crookse.colorsets.013[s:index]
-let s:langDefaultDataTypeDefFg = g:crookse.colorsets.012[s:index]
+" let s:langDefaultVariableFg    = g:crookse.colorsets.202[s:index]
+let s:langDefaultVariableFg    = g:crookse.colorsets.203[s:index]
+let s:langDefaultKeyword       = g:crookse.colorsets.202[s:index]
+let s:langDefaultDataTypeDefFg = g:crookse.colorsets.074[s:index]
 let s:langDefaultHtmlTagFg     = g:crookse.colorsets.074[s:index]
 let s:langDefaultString        = g:crookse.colorsets.222[s:index]
+let s:langDefaultDividerBlue   = g:crookse.colorsets.024[s:index]
+let s:langDefaultOperator      = g:crookse.colorsets.255[s:index]
 
+let s:commentFg     = g:crookse.colorsets.238[s:index]
 let s:commentTodoFg = g:crookse.colorsets.255[s:index]
 let s:commentTodoBg = g:crookse.colorsets.199[s:index]
 let s:jsObjectKey   = g:crookse.colorsets.074[s:index]
 
 " let s:langDefaultSuccessBackground = g:crookse.colorsets.079[s:index]
 " let s:langDefaultSuccessForeground = g:crookse.colorsets.065[s:index]
-let s:langDefaultSuccessForeground = g:crookse.colorsets.010[s:index]
+let s:langDefaultSuccessForeground = g:crookse.colorsets.042[s:index]
 
-"///////////////////////////////////////////////////////////////////////////////
-"// VIM UI COLORS //////////////////////////////////////////////////////////////
-"///////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+"// VIM UI COLORS //////////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
 
 execute "highlight ColorColumn "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.236[s:index]
+" TODO: Switch to 16+
 execute "highlight Cursor "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.011[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.005[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight CursorLine "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.236[s:index] . " "
+	\. s:ui_mode . "bg=" . g:crookse.colorsets.235[s:index] . " "
 	\. s:ui_mode . "=none"
+" TODO: Switch to 16+
 execute "highlight Folded "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.015[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.004[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight LineNr "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.000[s:index] . " "
+	\. s:ui_mode . "fg=" . s:commentFg . " "
 	\. s:ui_mode . "=none"
+" TODO: Switch to 16+
 execute "highlight MatchParen "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.011[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.005[s:index] . " "
 	\. s:ui_mode . "=none"
+" TODO: Switch to 16+
 execute "highlight NonText "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.000[s:index] . " "
 	\. s:ui_mode . "=none"
@@ -115,42 +121,66 @@ execute "highlight NonText "
 execute "highlight SpecialKey "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.235[s:index] . " "
 	\. s:ui_mode . "=none"
+" TODO: Switch to 16+
 execute "highlight StatusLine "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.004[s:index] . " "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.004[s:index] . " "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.240[s:index] . " "
+	\. s:ui_mode . "bg=" . g:crookse.colorsets.255[s:index] . " "
 	\. s:ui_mode . "=none"
+" TODO: Switch to 16+
 execute "highlight StatusLineNC "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.008[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.011[s:index] . " "
 	\. s:ui_mode . "=none"
+" Top tab names
 execute "highlight TabLine "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index] . " "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.232[s:index] . " "
+	" \. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index] . " "
+	" \. s:ui_mode . "bg=" . g:crookse.colorsets.232[s:index] . " "
 	\. s:ui_mode . "=none"
+" TODO: Switch to 16+
+" Top tab extended background area (to the right)
 execute "highlight TabLineFill "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.004[s:index] . " "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.255[s:index]
+	\. s:ui_mode . "fg=" . s:langDefaultDividerBlue . " "
+	" \. s:ui_mode . "bg=" . g:crookse.colorsets.255[s:index]
 execute "highlight TabLineSel "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.148[s:index] . " "
 	\. s:ui_mode . "=none"
+" The currently selected tab
 execute "highlight TabLineSelected "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.148[s:index] . " "
 	\. s:ui_mode . "=bold"
+" Tabs not selected
 execute "highlight TabLineUnselected "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.240[s:index]
 execute "highlight Title "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.001[s:index]
 execute "highlight! VertSplit "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.004[s:index] . " "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.004[s:index] . " "
+	\. s:ui_mode . "fg=" . s:langDefaultDividerBlue . " "
+	\. s:ui_mode . "bg=" . s:langDefaultDividerBlue . " "
 	\. s:ui_mode . "=none"
+" Commands such as `execute`, 
+execute "highlight! vimCommand "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+" Conditionals
+execute "highlight! vimNotFunc "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+" The `let` keyword
+execute "highlight! vimLet "
+	\. s:ui_mode . "fg=" . s:langDefaultDataTypeDefFg
+" Operators
+execute "highlight! vimOper "
+	\. s:ui_mode . "fg=" . s:langDefaultOperator
+" Variables
+execute "highlight! vimVar "
+	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
 
-"///////////////////////////////////////////////////////////////////////////////
-"// FILE-SPECIFIC SYNTAX HIGHLIGHTING //////////////////////////////////////////
-"///////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+"// FILE-SPECIFIC SYNTAX HIGHLIGHTING //////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
 
 " Apache
 execute "highlight apacheString "
@@ -160,7 +190,7 @@ execute "highlight apacheOrderValue "
 
 " VIM
 execute "highlight Comment "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.240[s:index] . " "
+	\. s:ui_mode . "fg=" . s:commentFg . " "
 	\. s:ui_mode . "=none"
 execute "highlight Constant "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.010[s:index] . " "
@@ -169,13 +199,13 @@ execute "highlight Identifier "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.013[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight Statement "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.013[s:index] . " "
+	\. s:ui_mode . "fg=" . s:langDefaultDataTypeDefFg . " "
 	\. s:ui_mode . "=none"
 execute "highlight PreProc "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.013[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight Function "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.012[s:index] . " "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.074[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight Type "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.013[s:index] . " "
@@ -229,6 +259,16 @@ execute "highlight htmlString "
 execute "highlight jsCommentTodo "
 	\. s:ui_mode . "fg=" . s:commentTodoFg . " "
 	\. s:ui_mode . "bg=" . s:commentTodoBg
+execute "highlight jsConditional "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight jsLabel "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight jsStatement "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight jsOperator "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight jsException "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 execute "highlight jsObjectKey "
 	\. s:ui_mode . "fg=" . s:jsObjectKey
 execute "highlight jsFunctionKey "
@@ -289,9 +329,9 @@ execute "highlight phpStringSingle "
 
 " }}
 
-"///////////////////////////////////////////////////////////////////////////////
-"// GIT UI COLORS //////////////////////////////////////////////////////////////
-"///////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+"// GIT UI COLORS //////////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
 
 execute "highlight diffFile "
 	\. s:ui_mode . "fg=" . s:white
@@ -304,6 +344,6 @@ execute "highlight diffLine "
 execute "highlight diffAdded "
 	\. s:ui_mode . "fg=" . s:langDefaultSuccessForeground
 execute "highlight diffRemoved "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.005[s:index]
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.074[s:index]
 execute "highlight gitcommitDiff "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.238[s:index]
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.237[s:index]
