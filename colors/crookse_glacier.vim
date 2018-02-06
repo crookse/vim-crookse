@@ -304,6 +304,16 @@ execute "highlight phpParent "
 execute "highlight phpTodo "
 	\. s:ui_mode . "fg=" . s:commentTodoFg . " "
 	\. s:ui_mode . "bg=" . s:commentTodoBg
+execute "highlight phpKeyword "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight phpVarSelector "
+	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
+execute "highlight phpMemberSelector "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index]
+execute "highlight phpOperator "
+	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
+execute "highlight phpIdentifier "
+	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
 execute "highlight phpMethodsVar "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.208[s:index]
 execute "highlight phpMethod "
