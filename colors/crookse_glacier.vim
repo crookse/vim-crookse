@@ -263,6 +263,8 @@ execute "highlight jsConditional "
 	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 execute "highlight jsLabel "
 	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight jsReturn "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 execute "highlight jsStatement "
 	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 execute "highlight jsOperator "
