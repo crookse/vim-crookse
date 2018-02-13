@@ -92,6 +92,13 @@ let s:jsObjectKey   = g:crookse.colorsets.074[s:index]
 let s:langDefaultSuccessForeground = g:crookse.colorsets.042[s:index]
 
 "///////////////////////////////////////////////////////////////////////////////////////////////////
+"// STANDARD ///////////////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+
+execute 'highlight Delimiter '
+	\. s:ui_mode . 'fg=' . g:crookse.colorsets.255[s:index]
+
+"///////////////////////////////////////////////////////////////////////////////////////////////////
 "// VIM UI COLORS //////////////////////////////////////////////////////////////////////////////////
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -103,7 +110,7 @@ execute 'highlight Visual '
 " Mode: Normal
 
 execute "highlight ColorColumn "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.232[s:index]
+	\. s:ui_mode . "bg=" . g:crookse.colorsets.000[s:index]
 " TODO: Switch to 16+
 " execute 'highlight Cursor '
 "     \. s:ui_mode . 'fg=' . g:crookse.colorsets.232[s:index] . ' '
@@ -245,6 +252,8 @@ execute "highlight String "
 execute "highlight vimString "
 	\. s:ui_mode . "fg=" . s:langDefaultString . " "
 	\. s:ui_mode . "=none"
+execute "highlight vimSynType "
+	\. s:ui_mode . "fg=" . s:langDefaultString
 
 " CSS
 execute "highlight cssAttributeSelector "
@@ -328,6 +337,10 @@ execute "highlight mustachePartial "
 	\. s:ui_mode . "fg=" . s:mustachePartial
 
 " PHP
+execute "highlight phpDocTags "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight phpClasses "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index]
 execute "highlight phpParent "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index]
 execute "highlight phpTodo "
@@ -341,6 +354,8 @@ execute "highlight phpMemberSelector "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index]
 execute "highlight phpOperator "
 	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
+execute "highlight phpInclude "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 execute "highlight phpIdentifier "
 	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
 execute "highlight phpMethodsVar "
@@ -354,7 +369,7 @@ execute "highlight phpClass "
 execute "highlight phpFunction "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.074[s:index]
 execute "highlight phpFunctions "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.004[s:index]
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.074[s:index]
 execute "highlight phpRegion "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index]
 execute "highlight phpStaticClasses "
@@ -365,6 +380,10 @@ execute "highlight phpStringDouble "
 	\. s:ui_mode . "fg=" . s:langDefaultString
 execute "highlight phpStringSingle "
 	\. s:ui_mode . "fg=" . s:langDefaultString
+execute "highlight phpSuperglobals "
+	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
+execute "highlight phpType "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 
 " }}
 

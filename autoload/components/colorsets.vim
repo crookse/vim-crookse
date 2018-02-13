@@ -4,6 +4,9 @@ if exists("g:crookse.colorsets") && g:crookse.colorsets
 	finish
 endif
 
+" Bright colors
+" 006 #ff77ff
+
 " Define and load the colorsets group
 function! components#colorsets#LoadColorSets()
 	let g:crookse.colorsets = {}
