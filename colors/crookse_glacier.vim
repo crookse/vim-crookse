@@ -75,6 +75,7 @@ let s:langDefaultFuncCallFg    = g:crookse.colorsets.208[s:index]
 let s:langDefaultVariableFg    = g:crookse.colorsets.203[s:index]
 let s:langDefaultKeyword       = g:crookse.colorsets.202[s:index]
 let s:langDefaultDataTypeDefFg = g:crookse.colorsets.074[s:index]
+let s:langDefaultDefiner       = g:crookse.colorsets.074[s:index]
 let s:langDefaultHtmlTagFg     = g:crookse.colorsets.074[s:index]
 let s:langDefaultString        = g:crookse.colorsets.222[s:index]
 let s:langDefaultDividerBlue   = g:crookse.colorsets.024[s:index]
@@ -282,6 +283,8 @@ execute "highlight jsOperator "
 	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 execute "highlight jsException "
 	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight jsFunction "
+	\. s:ui_mode . "fg=" . s:langDefaultDefiner
 execute "highlight jsObjectKey "
 	\. s:ui_mode . "fg=" . s:jsObjectKey
 execute "highlight jsFunctionKey "
