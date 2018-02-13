@@ -48,13 +48,13 @@ call s:UIMode()
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 
 if has("gui_running")
-    execute "highlight Normal "
+	execute "highlight Normal "
 		\. s:ui_mode . "fg=" . g:crookse.colorsets.015[s:index] . " "
 		\. s:ui_mode . "bg=" . s:color.guibg . " "
 		\. s:ui_mode . "=none"
 else
 " The background for non-gui mode is controlled by iterm
-    execute "highlight Normal "
+	execute "highlight Normal "
 		\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index] . " "
 		\. s:ui_mode . "=none"
 endif
@@ -70,18 +70,19 @@ let s:white  = g:crookse.colorsets.255[s:index]
 let s:yellow = g:crookse.colorsets.227[s:index]
 
 " Default language colors
-let s:langDefaultFuncCallFg    = g:crookse.colorsets.208[s:index]
 " let s:langDefaultVariableFg    = g:crookse.colorsets.202[s:index]
-let s:langDefaultVariableFg    = g:crookse.colorsets.203[s:index]
-let s:langDefaultKeyword       = g:crookse.colorsets.202[s:index]
 let s:langDefaultDataTypeDefFg = g:crookse.colorsets.074[s:index]
 let s:langDefaultDefiner       = g:crookse.colorsets.074[s:index]
-let s:langDefaultHtmlTagFg     = g:crookse.colorsets.074[s:index]
-let s:langDefaultString        = g:crookse.colorsets.222[s:index]
 let s:langDefaultDividerBlue   = g:crookse.colorsets.024[s:index]
+let s:langDefaultFuncCallFg    = g:crookse.colorsets.208[s:index]
+let s:langDefaultHtmlTagFg     = g:crookse.colorsets.074[s:index]
+let s:langDefaultIntegerFg     = g:crookse.colorsets.084[s:index]
+let s:langDefaultKeyword       = g:crookse.colorsets.202[s:index]
 let s:langDefaultOperator      = g:crookse.colorsets.255[s:index]
+let s:langDefaultString        = g:crookse.colorsets.222[s:index]
+let s:langDefaultVariableFg    = g:crookse.colorsets.203[s:index]
 
-let s:commentFg     = g:crookse.colorsets.238[s:index]
+let s:commentFg     = g:crookse.colorsets.237[s:index]
 let s:commentTodoFg = g:crookse.colorsets.255[s:index]
 let s:commentTodoBg = g:crookse.colorsets.199[s:index]
 let s:jsObjectKey   = g:crookse.colorsets.074[s:index]
@@ -98,6 +99,8 @@ let s:langDefaultSuccessForeground = g:crookse.colorsets.042[s:index]
 execute 'highlight Visual '
 	\. s:ui_mode . 'bg=' . g:crookse.colorsets.024[s:index]
 	" \. s:ui_mode . 'fg=' . g:crookse.colorsets.255[s:index] ' '
+
+" Mode: Normal
 
 execute "highlight ColorColumn "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.232[s:index]
@@ -118,14 +121,12 @@ execute "highlight Folded "
 execute "highlight LineNr "
 	\. s:ui_mode . "fg=" . s:commentFg . " "
 	\. s:ui_mode . "=none"
-" TODO: Switch to 16+
 " The MatchParen higlights the opening character and closing character (e.g., opening function
 " bracket and closing function bracket)
 execute "highlight MatchParen "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.255[s:index] . " "
 	\. s:ui_mode . "=none"
-" TODO: Switch to 16+
 execute "highlight NonText "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.236[s:index] . " "
 	\. s:ui_mode . "=none"
@@ -133,15 +134,13 @@ execute "highlight NonText "
 execute "highlight SpecialKey "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.235[s:index] . " "
 	\. s:ui_mode . "=none"
-" TODO: Switch to 16+
 execute "highlight StatusLine "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.240[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.255[s:index] . " "
 	\. s:ui_mode . "=none"
-" TODO: Switch to 16+
 execute "highlight StatusLineNC "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.008[s:index] . " "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.011[s:index] . " "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.240[s:index] . " "
+	\. s:ui_mode . "bg=" . g:crookse.colorsets.240[s:index] . " "
 	\. s:ui_mode . "=none"
 " Top tab names
 execute "highlight TabLine "
@@ -150,7 +149,6 @@ execute "highlight TabLine "
 	" \. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index] . " "
 	" \. s:ui_mode . "bg=" . g:crookse.colorsets.232[s:index] . " "
 	\. s:ui_mode . "=none"
-" TODO: Switch to 16+
 " Top tab extended background area (to the right)
 execute "highlight TabLineFill "
 	\. s:ui_mode . "fg=" . s:langDefaultDividerBlue . " "
@@ -174,6 +172,14 @@ execute "highlight! VertSplit "
 	\. s:ui_mode . "fg=" . s:langDefaultDividerBlue . " "
 	\. s:ui_mode . "bg=" . s:langDefaultDividerBlue . " "
 	\. s:ui_mode . "=none"
+execute "highlight vimCommentTitle "
+	\. s:ui_mode . "fg=" . s:commentFg
+execute "highlight vimContinue "
+	\. s:ui_mode . "fg=" . s:langDefaultOperator
+execute "highlight vimFuncSID "
+	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
+execute "highlight vimParenSep "
+	\. s:ui_mode . "fg=" . s:langDefaultOperator
 " Commands such as `execute`, 
 execute "highlight! vimCommand "
 	\. s:ui_mode . "fg=" . s:langDefaultKeyword
@@ -186,9 +192,14 @@ execute "highlight! vimLet "
 " Operators
 execute "highlight! vimOper "
 	\. s:ui_mode . "fg=" . s:langDefaultOperator
+execute "highlight vimTodo "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
+	\. s:ui_mode . "bg=" . g:crookse.colorsets.005[s:index]
 " Variables
 execute "highlight! vimVar "
 	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
+execute "highlight vimNumber "
+	\. s:ui_mode . "fg=" . s:langDefaultIntegerFg
 
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 "// FILE-SPECIFIC SYNTAX HIGHLIGHTING //////////////////////////////////////////////////////////////
@@ -375,3 +386,31 @@ execute "highlight diffRemoved "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.074[s:index]
 execute "highlight gitcommitDiff "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.237[s:index]
+
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+"// NERD TREE //////////////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+
+let s:nerdTreeDirFile = g:crookse.colorsets.255[s:index]
+let s:nerdTreeDir     = s:langDefaultDividerBlue
+execute 'highlight NERDTreeDirSlash '
+	\. s:ui_mode . 'fg=' . s:nerdTreeDir
+execute 'highlight NERDTreeDir '
+	\. s:ui_mode . 'fg=' . s:nerdTreeDir
+execute 'highlight NERDTreeFile '
+	\. s:ui_mode . 'fg=' . s:nerdTreeDirFile
+execute 'highlight NERDTreeOpenable '
+	\. s:ui_mode . 'fg=' . s:nerdTreeDir
+execute 'highlight NERDTreeClosable '
+	\. s:ui_mode . 'fg=' . s:nerdTreeDir
+
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+"// SH /////////////////////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+
+execute 'highlight shVariable '
+	\. s:ui_mode . 'fg=' . s:langDefaultVariableFg
+execute 'highlight shSetList '
+	\. s:ui_mode . 'fg=' . s:langDefaultVariableFg
+execute 'highlight shDerefSimple '
+	\. s:ui_mode . 'fg=' . s:langDefaultVariableFg
