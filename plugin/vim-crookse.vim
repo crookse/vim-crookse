@@ -6,7 +6,7 @@ endif
 let g:loaded_crookse = 1
 let g:crookse        = {}
 
-call components#colorsets#Load()
+call components#colorsets#LoadColorSets()
 
 
 colorscheme crookse_glacier

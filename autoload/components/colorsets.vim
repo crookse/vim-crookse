@@ -5,7 +5,7 @@ if exists("g:crookse.colorsets") && g:crookse.colorsets
 endif
 
 " Define and load the colorsets group
-function! components#colorsets#Load()
+function! components#colorsets#LoadColorSets()
 	let g:crookse.colorsets = {}
 "                                 +--------------+------------------+
 "         Global Variable         |  Color Code  |  Hex Color Code  |   ( R ,  G ,  B )

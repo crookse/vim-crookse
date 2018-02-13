@@ -18,6 +18,8 @@ if version > 580
     endif
 endif
 
+" Note:
+" iTerm2 Background color should be set to #0a1017
 let g:colors_name = "crookse_glacier"
 
 " }}
@@ -32,8 +34,6 @@ function! s:UIMode()
         let s:ui_mode     = "cterm"
         let s:id = 1
 		let s:index = 0
-        " Force 16 color mode
-        set t_Co=16
     endif
 endfunction
 
@@ -43,7 +43,10 @@ call s:UIMode()
 
 " Semantics {{ 
 
-" Set window background color
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+"// WINDOW BACKGROUND //////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+
 if has("gui_running")
     execute "highlight Normal "
 		\. s:ui_mode . "fg=" . g:crookse.colorsets.015[s:index] . " "
@@ -52,7 +55,7 @@ if has("gui_running")
 else
 " The background for non-gui mode is controlled by iterm
     execute "highlight Normal "
-		\. s:ui_mode . "fg=" . g:crookse.colorsets.015[s:index] . " "
+		\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index] . " "
 		\. s:ui_mode . "=none"
 endif
 
@@ -90,15 +93,21 @@ let s:langDefaultSuccessForeground = g:crookse.colorsets.042[s:index]
 "// VIM UI COLORS //////////////////////////////////////////////////////////////////////////////////
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 
+" Mode: Visual
+execute 'highlight Visual '
+	\. s:ui_mode . 'bg=' . g:crookse.colorsets.024[s:index]
+	" \. s:ui_mode . 'fg=' . g:crookse.colorsets.255[s:index] ' '
+
 execute "highlight ColorColumn "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.236[s:index]
+	\. s:ui_mode . "bg=" . g:crookse.colorsets.232[s:index]
 " TODO: Switch to 16+
-execute "highlight Cursor "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.011[s:index] . " "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.005[s:index] . " "
-	\. s:ui_mode . "=none"
+" execute 'highlight Cursor '
+"     \. s:ui_mode . 'fg=' . g:crookse.colorsets.232[s:index] . ' '
+"     \. s:ui_mode . 'bg=' . g:crookse.colorsets.255[s:index] . ' '
+"     \. s:ui_mode . '=none'
+" Note: The CursorLine is controlled by iTerm2's setting of ANSI Color Normal Black
 execute "highlight CursorLine "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.235[s:index] . " "
+	\. s:ui_mode . "bg=" . g:crookse.colorsets.000[s:index] . " "
 	\. s:ui_mode . "=none"
 " TODO: Switch to 16+
 execute "highlight Folded "
@@ -109,13 +118,15 @@ execute "highlight LineNr "
 	\. s:ui_mode . "fg=" . s:commentFg . " "
 	\. s:ui_mode . "=none"
 " TODO: Switch to 16+
+" The MatchParen higlights the opening character and closing character (e.g., opening function
+" bracket and closing function bracket)
 execute "highlight MatchParen "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.011[s:index] . " "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.005[s:index] . " "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
+	\. s:ui_mode . "bg=" . g:crookse.colorsets.255[s:index] . " "
 	\. s:ui_mode . "=none"
 " TODO: Switch to 16+
 execute "highlight NonText "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.000[s:index] . " "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.236[s:index] . " "
 	\. s:ui_mode . "=none"
 " SpecialKey chars: whitespace, tabs, VIM control characters
 execute "highlight SpecialKey "
@@ -283,6 +294,8 @@ execute "highlight jsVariableDef "
 	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
 execute "highlight jsStorageClass "
 	\. s:ui_mode . "fg=" . s:langDefaultDataTypeDefFg
+execute "highlight jsTernaryIfOperator "
+	\. s:ui_mode . "fg=" . s:langDefaultOperator
 
 " Mustache/Handlebars
 """" Brackets
