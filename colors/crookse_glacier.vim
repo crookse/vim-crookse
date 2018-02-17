@@ -132,7 +132,7 @@ execute "highlight LineNr "
 " bracket and closing function bracket)
 execute "highlight MatchParen "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.255[s:index] . " "
+	\. s:ui_mode . "bg=" . g:crookse.colorsets.013[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight NonText "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.236[s:index] . " "
