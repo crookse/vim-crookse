@@ -288,11 +288,17 @@ execute "highlight htmlString "
 	\. s:ui_mode . "fg=" . s:langDefaultString
 
 " JavaScript
+execute "highlight jsBlock "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 execute "highlight jsCommentTodo "
 	\. s:ui_mode . "fg=" . s:commentTodoFg . " "
 	\. s:ui_mode . "bg=" . s:commentTodoBg
 execute "highlight jsConditional "
 	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight jsGlobalNodeObjects "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight jsGlobalObjects "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index]
 execute "highlight jsLabel "
 	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 execute "highlight jsReturn "
@@ -303,9 +309,13 @@ execute "highlight jsOperator "
 	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 execute "highlight jsException "
 	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight jsExceptions "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 execute "highlight jsFunction "
-	\. s:ui_mode . "fg=" . s:langDefaultDefiner
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 execute "highlight jsObjectKey "
+	\. s:ui_mode . "fg=" . s:jsObjectKey
+execute "highlight jsObjectStringKey "
 	\. s:ui_mode . "fg=" . s:jsObjectKey
 execute "highlight jsFunctionKey "
 	\. s:ui_mode . "fg=" . s:jsObjectKey
@@ -313,6 +323,8 @@ execute "highlight jsFuncCall "
 	\. s:ui_mode . "fg=" . s:langDefaultFuncCallFg
 execute "highlight jsString "
 	\. s:ui_mode . "fg=" . s:langDefaultString
+execute "highlight jsThis "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 execute "highlight jsVariableDef "
 	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
 execute "highlight jsStorageClass "
