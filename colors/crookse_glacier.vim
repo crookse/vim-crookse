@@ -339,12 +339,11 @@ execute "highlight mustacheHandlebars "
 execute "highlight mustacheUnescape "
 	\. s:ui_mode . "fg=" . s:langDefaultHtmlTagFg
 """" Mustache/Handlerbars variable
-let s:mustacheVariable = g:crookse.colorsets.005[s:index]
 let s:mustachePartial  = g:crookse.colorsets.214[s:index]
 execute "highlight mustacheSection "
-	\. s:ui_mode . "fg=" . s:mustacheVariable
+	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
 execute "highlight mustacheInside "
-	\. s:ui_mode . "fg=" . s:mustacheVariable
+	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
 execute "highlight mustachePartial "
 	\. s:ui_mode . "fg=" . s:mustachePartial
 
