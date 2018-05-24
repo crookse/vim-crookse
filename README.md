@@ -2,7 +2,7 @@
 
 ## Summary
 
-*Note: Using this plugin will automatically call set `colorscheme crookse_glacier`. If you don't want that, then remove that line from `plugin/vim-crookse.vim`.*
+*Note: Using this plugin will automatically set `colorscheme crookse_glacier`. If you don't want that, then remove that line from `plugin/vim-crookse.vim`.*
 
 This package exists to house all of my Vim configurations. Currently, it only has a `colorsets` object (makes changing colors in your Vim theme easier and ensures consistent syntax highlighting across languages) that is based on the 256 color map and an extension to the Glacier color scheme provided by @joeyfigaro.
 
@@ -30,7 +30,7 @@ execute "highlight jsString "
 
 ## Using `crookse_glacier`.
 
-*Note: Using this plugin will automatically call set `colorscheme crookse_glacier`. If you don't want that, then remove that line from `plugin/vim-crookse.vim`.*
+*Note: Using this plugin will automatically set `colorscheme crookse_glacier`. If you don't want that, then remove that line from `plugin/vim-crookse.vim`.*
 
 1. In `vimrc`, `Plugin 'crookse/vim-crookse'` to list of plugins.
 2. In `vimrc`, add `set rtp+=~/.vim/bundle/vim-crookse`.
