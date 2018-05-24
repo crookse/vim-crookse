@@ -10,7 +10,7 @@ This package exists to house all of my Vim configurations. Currently, it only ha
 
 I created the `colorsets` object to ensure consistent highlighting across different programming languages. See the below example for defining the default color for strings and applying it to different languages.
 
-```
+```vim
 # Define the default color for strings.
 let s:langDefaultString = g:crookse.colorsets.222[s:index]
 
