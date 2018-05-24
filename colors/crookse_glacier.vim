@@ -1,15 +1,24 @@
 " File: crookse_glacier.vim
-" Description: A flat, colorful theme/scheme combo for VIM
+" Description: A colorful theme/scheme combo to that matches Glacier. Syntax highlighting is still
+" an ongoing process in this project.
+"
+" Notes:
+"  - iTerm2 background color should be set to #0a1017.
+"  - All color sets that target 000 - 015 are controlled by the terminal's settings. For example,
+"    iTerm2 users have the option to change their profile's ANSI color settings by going to:
+"        Preferences > Profiles > {Profile Name} > Colors > ANSI Colors
+"    This package will honor the setting of those colors, so if color set 000 is used and iTerm2 has
+"    Black set to #ffffff (white), then 000 in this package is #ffffff (white).
+"
+" --------------------------------------------------------------------------------------------------
 " Credits: Brian Ward <twitter: @brianward>, Joey Figaro <twitter: @joeyfigaro>
 " Source: https://github.com/primedirective/glacier-remixes
-" Last Modified: 26 Jun 2014
-" -----------------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
 
 " Note: This theme uses g:crookse.colorsets from:
 " ~/.dotfiles/.vim/bundle/vim-crookse/autoload/components/colorsets.vim
-" Place cursor over the path and type <C-w>f to go to the file
 
-" Initialization {{
+" Initialization
 
 if version > 580
     hi clear
@@ -18,13 +27,9 @@ if version > 580
     endif
 endif
 
-" Note:
-" iTerm2 Background color should be set to #0a1017
 let g:colors_name = "crookse_glacier"
 
-" }}
-
-" Set Color Mode {{
+" Set the color mode.
 
 function! s:UIMode()
     if has("gui_running")
@@ -38,10 +43,6 @@ function! s:UIMode()
 endfunction
 
 call s:UIMode()
-
-" }}
-
-" Semantics {{ 
 
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 "// WINDOW BACKGROUND //////////////////////////////////////////////////////////////////////////////
@@ -70,7 +71,7 @@ let s:white  = g:crookse.colorsets.255[s:index]
 let s:yellow = g:crookse.colorsets.227[s:index]
 
 " Default language colors
-" let s:langDefaultVariableFg    = g:crookse.colorsets.202[s:index]
+let s:langDefaultCursor        = g:crookse.colorsets.008[s:index]
 let s:langDefaultDataTypeDefFg = g:crookse.colorsets.074[s:index]
 let s:langDefaultDefiner       = g:crookse.colorsets.074[s:index]
 let s:langDefaultDividerBlue   = g:crookse.colorsets.024[s:index]
@@ -87,8 +88,6 @@ let s:commentTodoFg = g:crookse.colorsets.255[s:index]
 let s:commentTodoBg = g:crookse.colorsets.199[s:index]
 let s:jsObjectKey   = g:crookse.colorsets.074[s:index]
 
-" let s:langDefaultSuccessBackground = g:crookse.colorsets.079[s:index]
-" let s:langDefaultSuccessForeground = g:crookse.colorsets.065[s:index]
 let s:langDefaultSuccessForeground = g:crookse.colorsets.042[s:index]
 
 "///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -99,28 +98,31 @@ execute 'highlight Delimiter '
 	\. s:ui_mode . 'fg=' . g:crookse.colorsets.255[s:index]
 
 "///////////////////////////////////////////////////////////////////////////////////////////////////
-"// VIM UI COLORS //////////////////////////////////////////////////////////////////////////////////
+"// APACHE /////////////////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+
+execute "highlight apacheString "
+	\. s:ui_mode . "fg=" . s:langDefaultString
+execute "highlight apacheOrderValue "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index]
+
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+"// VIM ////////////////////////////////////////////////////////////////////////////////////////////
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 
 " Mode: Visual
+
 execute 'highlight Visual '
 	\. s:ui_mode . 'bg=' . g:crookse.colorsets.024[s:index]
-	" \. s:ui_mode . 'fg=' . g:crookse.colorsets.255[s:index] ' '
 
 " Mode: Normal
 
 execute "highlight ColorColumn "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.000[s:index]
-" TODO: Switch to 16+
-" execute 'highlight Cursor '
-"     \. s:ui_mode . 'fg=' . g:crookse.colorsets.232[s:index] . ' '
-"     \. s:ui_mode . 'bg=' . g:crookse.colorsets.255[s:index] . ' '
-"     \. s:ui_mode . '=none'
-" Note: The CursorLine is controlled by iTerm2's setting of ANSI Color Normal Black
+	\. s:ui_mode . "bg=" . s:langDefaultCursor
+" Note: The CursorLine is controlled by iTerm2's setting.
 execute "highlight CursorLine "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.000[s:index] . " "
+	\. s:ui_mode . "bg=" . s:langDefaultCursor . " "
 	\. s:ui_mode . "=none"
-" TODO: Switch to 16+
 execute "highlight Folded "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.015[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.004[s:index] . " "
@@ -129,7 +131,7 @@ execute "highlight LineNr "
 	\. s:ui_mode . "fg=" . s:commentFg . " "
 	\. s:ui_mode . "=none"
 " The MatchParen higlights the opening character and closing character (e.g., opening function
-" bracket and closing function bracket)
+" bracket and closing function bracket).
 execute "highlight MatchParen "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.013[s:index] . " "
@@ -137,7 +139,7 @@ execute "highlight MatchParen "
 execute "highlight NonText "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.236[s:index] . " "
 	\. s:ui_mode . "=none"
-" SpecialKey chars: whitespace, tabs, VIM control characters
+" SpecialKey chars: whitespace, tabs, VIM control characters.
 execute "highlight SpecialKey "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.235[s:index] . " "
 	\. s:ui_mode . "=none"
@@ -149,14 +151,14 @@ execute "highlight StatusLineNC "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.240[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.240[s:index] . " "
 	\. s:ui_mode . "=none"
-" Top tab names
+" Top tab names.
 execute "highlight TabLine "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.232[s:index] . " "
 	" \. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index] . " "
 	" \. s:ui_mode . "bg=" . g:crookse.colorsets.232[s:index] . " "
 	\. s:ui_mode . "=none"
-" Top tab extended background area (to the right)
+" Top tab extended background area (everything to the right of the last tab).
 execute "highlight TabLineFill "
 	\. s:ui_mode . "fg=" . s:langDefaultDividerBlue . " "
 	" \. s:ui_mode . "bg=" . g:crookse.colorsets.255[s:index]
@@ -164,12 +166,12 @@ execute "highlight TabLineSel "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.148[s:index] . " "
 	\. s:ui_mode . "=none"
-" The currently selected tab
+" The currently selected tab (the one you are viewing).
 execute "highlight TabLineSelected "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.148[s:index] . " "
 	\. s:ui_mode . "=bold"
-" Tabs not selected
+" Tabs not selected (tabs other than the one you are viewing).
 execute "highlight TabLineUnselected "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index] . " "
 	\. s:ui_mode . "bg=" . g:crookse.colorsets.240[s:index]
@@ -179,21 +181,25 @@ execute "highlight! VertSplit "
 	\. s:ui_mode . "fg=" . s:langDefaultDividerBlue . " "
 	\. s:ui_mode . "bg=" . s:langDefaultDividerBlue . " "
 	\. s:ui_mode . "=none"
+execute "highlight vimAutoEvent "
+	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
 execute "highlight vimCommentTitle "
 	\. s:ui_mode . "fg=" . s:commentFg
 execute "highlight vimContinue "
 	\. s:ui_mode . "fg=" . s:langDefaultOperator
 execute "highlight vimFuncSID "
 	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
+execute "highlight vimOption "
+	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
 execute "highlight vimParenSep "
 	\. s:ui_mode . "fg=" . s:langDefaultOperator
-" Commands such as `execute`, 
+" Commands such as `execute`.
 execute "highlight! vimCommand "
 	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 " Conditionals
 execute "highlight! vimNotFunc "
 	\. s:ui_mode . "fg=" . s:langDefaultKeyword
-" The `let` keyword
+" The `let` keyword.
 execute "highlight! vimLet "
 	\. s:ui_mode . "fg=" . s:langDefaultDataTypeDefFg
 " Operators
@@ -207,18 +213,6 @@ execute "highlight! vimVar "
 	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
 execute "highlight vimNumber "
 	\. s:ui_mode . "fg=" . s:langDefaultIntegerFg
-
-"///////////////////////////////////////////////////////////////////////////////////////////////////
-"// FILE-SPECIFIC SYNTAX HIGHLIGHTING //////////////////////////////////////////////////////////////
-"///////////////////////////////////////////////////////////////////////////////////////////////////
-
-" Apache
-execute "highlight apacheString "
-	\. s:ui_mode . "fg=" . s:langDefaultString
-execute "highlight apacheOrderValue "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index]
-
-" VIM
 execute "highlight Comment "
 	\. s:ui_mode . "fg=" . s:commentFg . " "
 	\. s:ui_mode . "=none"
@@ -255,13 +249,19 @@ execute "highlight vimString "
 execute "highlight vimSynType "
 	\. s:ui_mode . "fg=" . s:langDefaultString
 
-" CSS
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+"// CSS ////////////////////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+
 execute "highlight cssAttributeSelector "
 	\. s:ui_mode . "fg=" . s:langDefaultString
 execute "highlight cssStringQQ "
 	\. s:ui_mode . "fg=" . s:langDefaultString
 
-" HTML
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+"// HTML ///////////////////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+
 execute "highlight htmlArg "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.010[s:index] . " "
 	\. s:ui_mode . "=none"
@@ -287,7 +287,10 @@ execute "highlight htmlLink "
 execute "highlight htmlString "
 	\. s:ui_mode . "fg=" . s:langDefaultString
 
-" JavaScript
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+"// JAVASCRIPT /////////////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+
 execute "highlight jsBlock "
 	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 execute "highlight jsCommentTodo "
@@ -332,13 +335,16 @@ execute "highlight jsStorageClass "
 execute "highlight jsTernaryIfOperator "
 	\. s:ui_mode . "fg=" . s:langDefaultOperator
 
-" Mustache/Handlebars
-"""" Brackets
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+"// MUSTACHE / HANDLEBARS //////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+
+" Brackets
 execute "highlight mustacheHandlebars "
 	\. s:ui_mode . "fg=" . s:langDefaultHtmlTagFg
 execute "highlight mustacheUnescape "
 	\. s:ui_mode . "fg=" . s:langDefaultHtmlTagFg
-"""" Mustache/Handlerbars variable
+" Mustache/Handlerbars variable
 let s:mustachePartial  = g:crookse.colorsets.214[s:index]
 execute "highlight mustacheSection "
 	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
@@ -347,9 +353,10 @@ execute "highlight mustacheInside "
 execute "highlight mustachePartial "
 	\. s:ui_mode . "fg=" . s:mustachePartial
 
-" PHP
-execute "highlight phpDocTags "
-	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+"// PHP ////////////////////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+
 execute "highlight phpClasses "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index]
 execute "highlight phpParent "
@@ -395,13 +402,17 @@ execute "highlight phpSuperglobals "
 	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
 execute "highlight phpType "
 	\. s:ui_mode . "fg=" . s:langDefaultKeyword
-
-" }}
+execute "highlight phpDocTags "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 
 "///////////////////////////////////////////////////////////////////////////////////////////////////
-"// GIT UI COLORS //////////////////////////////////////////////////////////////////////////////////
+"// GIT ////////////////////////////////////////////////////////////////////////////////////////////
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 
+execute "highlight gitcommitHeader "
+	\. s:ui_mode . "fg=" . s:white
+execute "highlight gitcommitSelectedType "
+	\. s:ui_mode . "fg=" . s:white
 execute "highlight diffFile "
 	\. s:ui_mode . "fg=" . s:white
 execute "highlight diffNewFile "
@@ -416,6 +427,13 @@ execute "highlight diffRemoved "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.074[s:index]
 execute "highlight gitcommitDiff "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.237[s:index]
+
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+"// INI ////////////////////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+
+execute 'highlight dosiniLabel '
+	\. s:ui_mode . 'fg=' . s:langDefaultVariableFg
 
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 "// NERD TREE //////////////////////////////////////////////////////////////////////////////////////
@@ -433,6 +451,21 @@ execute 'highlight NERDTreeOpenable '
 	\. s:ui_mode . 'fg=' . s:nerdTreeDir
 execute 'highlight NERDTreeClosable '
 	\. s:ui_mode . 'fg=' . s:nerdTreeDir
+
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+"// PUG ////////////////////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+
+execute 'highlight pugAttributesDelimiter '
+	\. s:ui_mode . 'fg=' . s:white
+execute 'highlight pugClass '
+	\. s:ui_mode . 'fg=' . s:langDefaultVariableFg
+execute 'highlight pugId '
+	\. s:ui_mode . 'fg=' . s:langDefaultVariableFg
+execute 'highlight pugScriptConditional '
+	\. s:ui_mode . 'fg=' . s:langDefaultKeyword
+execute 'highlight pugScriptStatement '
+	\. s:ui_mode . 'fg=' . s:langDefaultVariableFg
 
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 "// SH /////////////////////////////////////////////////////////////////////////////////////////////
