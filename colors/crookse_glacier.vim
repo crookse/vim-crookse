@@ -71,9 +71,10 @@ let s:white  = g:crookse.colorsets.255[s:index]
 let s:yellow = g:crookse.colorsets.227[s:index]
 
 " Default language colors
-let s:langDefaultCursor        = g:crookse.colorsets.008[s:index]
+let s:langDefaultCursor        = g:crookse.colorsets.012[s:index]
 let s:langDefaultDataTypeDefFg = g:crookse.colorsets.074[s:index]
 let s:langDefaultDefiner       = g:crookse.colorsets.074[s:index]
+let s:langDefaultDivider       = g:crookse.colorsets.024[s:index]
 let s:langDefaultDividerBlue   = g:crookse.colorsets.024[s:index]
 let s:langDefaultFuncCallFg    = g:crookse.colorsets.208[s:index]
 let s:langDefaultHtmlTagFg     = g:crookse.colorsets.074[s:index]
@@ -83,7 +84,7 @@ let s:langDefaultOperator      = g:crookse.colorsets.255[s:index]
 let s:langDefaultString        = g:crookse.colorsets.222[s:index]
 let s:langDefaultVariableFg    = g:crookse.colorsets.203[s:index]
 
-let s:commentFg     = g:crookse.colorsets.237[s:index]
+let s:commentFg     = g:crookse.colorsets.009[s:index]
 let s:commentTodoFg = g:crookse.colorsets.255[s:index]
 let s:commentTodoBg = g:crookse.colorsets.199[s:index]
 let s:jsObjectKey   = g:crookse.colorsets.074[s:index]
@@ -134,14 +135,14 @@ execute "highlight LineNr "
 " bracket and closing function bracket).
 execute "highlight MatchParen "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.013[s:index] . " "
+	\. s:ui_mode . "bg=" . g:crookse.colorsets.197[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight NonText "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.236[s:index] . " "
 	\. s:ui_mode . "=none"
 " SpecialKey chars: whitespace, tabs, VIM control characters.
 execute "highlight SpecialKey "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.235[s:index] . " "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.238[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight StatusLine "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.240[s:index] . " "
@@ -160,7 +161,7 @@ execute "highlight TabLine "
 	\. s:ui_mode . "=none"
 " Top tab extended background area (everything to the right of the last tab).
 execute "highlight TabLineFill "
-	\. s:ui_mode . "fg=" . s:langDefaultDividerBlue . " "
+	\. s:ui_mode . "fg=" . s:langDefaultDivider . " "
 	" \. s:ui_mode . "bg=" . g:crookse.colorsets.255[s:index]
 execute "highlight TabLineSel "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
@@ -178,8 +179,8 @@ execute "highlight TabLineUnselected "
 execute "highlight Title "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.001[s:index]
 execute "highlight! VertSplit "
-	\. s:ui_mode . "fg=" . s:langDefaultDividerBlue . " "
-	\. s:ui_mode . "bg=" . s:langDefaultDividerBlue . " "
+	\. s:ui_mode . "fg=" . s:langDefaultDivider . " "
+	\. s:ui_mode . "bg=" . s:langDefaultDivider . " "
 	\. s:ui_mode . "=none"
 execute "highlight vimAutoEvent "
 	\. s:ui_mode . "fg=" . s:langDefaultVariableFg
@@ -220,22 +221,22 @@ execute "highlight Constant "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.010[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight Identifier "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.013[s:index] . " "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.238[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight Statement "
 	\. s:ui_mode . "fg=" . s:langDefaultDataTypeDefFg . " "
 	\. s:ui_mode . "=none"
 execute "highlight PreProc "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.013[s:index] . " "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.238[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight Function "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.074[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight Type "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.013[s:index] . " "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.238[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight Number "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.010[s:index] . " "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.011[s:index] . " "
 	\. s:ui_mode . "=none"
 execute "highlight Special "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.010[s:index] . " "
@@ -257,6 +258,30 @@ execute "highlight cssAttributeSelector "
 	\. s:ui_mode . "fg=" . s:langDefaultString
 execute "highlight cssStringQQ "
 	\. s:ui_mode . "fg=" . s:langDefaultString
+execute "highlight scssSelectorName "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight cssBoxProp "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight cssMediaProp "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight cssAtRule "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight cssBorderProp "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight cssPositioningProp "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight cssPseudoClassId "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight cssTagName "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight cssClassName "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight cssFontProp "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight cssBackgroundProp "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight cssTextProp "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 "// HTML ///////////////////////////////////////////////////////////////////////////////////////////
@@ -334,6 +359,14 @@ execute "highlight jsStorageClass "
 	\. s:ui_mode . "fg=" . s:langDefaultDataTypeDefFg
 execute "highlight jsTernaryIfOperator "
 	\. s:ui_mode . "fg=" . s:langDefaultOperator
+execute "highlight jsExport "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight jsExportDefault "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight jsImport "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight jsFrom "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 "// MUSTACHE / HANDLEBARS //////////////////////////////////////////////////////////////////////////
@@ -427,6 +460,23 @@ execute "highlight diffRemoved "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.074[s:index]
 execute "highlight gitcommitDiff "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.237[s:index]
+execute "highlight SignColumn "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.237[s:index]
+	\. s:ui_mode . "bg=" . g:crookse.colorsets.237[s:index]
+
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+"// GO /////////////////////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+execute "highlight goBuiltins "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight goSignedInts "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight goUnsignedInts "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute "highlight goType "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 "// INI ////////////////////////////////////////////////////////////////////////////////////////////
@@ -477,3 +527,34 @@ execute 'highlight shSetList '
 	\. s:ui_mode . 'fg=' . s:langDefaultVariableFg
 execute 'highlight shDerefSimple '
 	\. s:ui_mode . 'fg=' . s:langDefaultVariableFg
+
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+"// TYPESCRIPT /////////////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+
+execute "highlight typescriptDocTags "
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute 'highlight typescriptDocParam '
+	\. s:ui_mode . "fg=" . s:langDefaultIntegerFg
+execute "highlight typescriptCommentTodo "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
+	\. s:ui_mode . "bg=" . g:crookse.colorsets.005[s:index]
+execute 'highlight typescriptStorageClass '
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute 'highlight typescriptIdentifier '
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute 'highlight typescriptType '
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute 'highlight typescriptNumber '
+	\. s:ui_mode . "fg=" . s:langDefaultIntegerFg
+execute 'highlight typescriptNull '
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute 'highlight typescriptPrototype '
+	\. s:ui_mode . "fg=" . s:langDefaultIntegerFg
+
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+"// YAML ///////////////////////////////////////////////////////////////////////////////////////////
+"///////////////////////////////////////////////////////////////////////////////////////////////////
+
+execute 'highlight yamlKey '
+	\. s:ui_mode . "fg=" . s:langDefaultKeyword
