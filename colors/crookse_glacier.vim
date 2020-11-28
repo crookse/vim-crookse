@@ -107,7 +107,7 @@ execute "highlight apacheDeclaration "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.074[s:index]
 execute "highlight apacheAnything "
 	\. s:ui_mode . "fg=" . s:langDefaultString
-execute "highlight apacheAllowDenyValue "
+execute "highlight apacheAllowDeny "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.074[s:index]
 execute "highlight apacheAllowDenyValue "
 	\. s:ui_mode . "fg=" . s:langDefaultIntegerFg
