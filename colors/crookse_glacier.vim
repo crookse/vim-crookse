@@ -103,8 +103,14 @@ execute 'highlight Delimiter '
 "// APACHE /////////////////////////////////////////////////////////////////////////////////////////
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 
+execute "highlight apacheDeclaration "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.074[s:index]
 execute "highlight apacheAnything "
 	\. s:ui_mode . "fg=" . s:langDefaultString
+execute "highlight apacheAllowDenyValue "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.074[s:index]
+execute "highlight apacheAllowDenyValue "
+	\. s:ui_mode . "fg=" . s:langDefaultIntegerFg
 execute "highlight apacheComment "
 	\. s:ui_mode . "fg=" . s:commentFg
 execute "highlight apacheOption "
