@@ -83,6 +83,7 @@ let s:langDefaultKeyword       = g:crookse.colorsets.202[s:index]
 let s:langDefaultOperator      = g:crookse.colorsets.255[s:index]
 let s:langDefaultString        = g:crookse.colorsets.222[s:index]
 let s:langDefaultVariableFg    = g:crookse.colorsets.203[s:index]
+let s:white                    = g:crookse.colorsets.255[s:index]
 
 let s:commentFg     = g:crookse.colorsets.238[s:index]
 let s:commentTodoFg = g:crookse.colorsets.255[s:index]
@@ -298,13 +299,22 @@ execute "highlight cssTextProp "
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 
 execute "highlight htmlArg "
-	\. s:ui_mode . "fg=" . s:langDefaultHtmlTagFg . " "
+	\. s:ui_mode . "fg=" . s:langDefaultIntegerFg . " "
+	\. s:ui_mode . "=none"
+execute "highlight htmlTitle "
+	\. s:ui_mode . "fg=" . s:white . " "
+	\. s:ui_mode . "=none"
+execute "highlight htmlH1 "
+	\. s:ui_mode . "fg=" . s:white . " "
+	\. s:ui_mode . "=none"
+execute "highlight htmlH2 "
+	\. s:ui_mode . "fg=" . s:white . " "
 	\. s:ui_mode . "=none"
 execute "highlight htmlH3 "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index] . " "
+	\. s:ui_mode . "fg=" . s:white . " "
 	\. s:ui_mode . "=none"
 execute "highlight htmlLink "
-	\. s:ui_mode . "fg=" . s:langDefaultString . " "
+	\. s:ui_mode . "fg=" . s:white . " "
 	\. s:ui_mode . "=none"
 execute "highlight htmlTag "
 	\. s:ui_mode . "fg=" . s:langDefaultHtmlTagFg . " "
@@ -317,8 +327,6 @@ execute "highlight htmlEndTag "
 	\. s:ui_mode . "=none"
 execute "highlight htmlBold "
 	\. s:ui_mode . "=none"
-execute "highlight htmlLink "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index]
 execute "highlight htmlString "
 	\. s:ui_mode . "fg=" . s:langDefaultString
 
