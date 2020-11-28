@@ -105,7 +105,7 @@ execute 'highlight Delimiter '
 execute "highlight apacheAnything "
 	\. s:ui_mode . "fg=" . s:langDefaultString
 execute "highlight apacheComment "
-	\. s:ui_mode . "fg=" . s:commentTodoFg
+	\. s:ui_mode . "fg=" . s:commentFg
 execute "highlight apacheString "
 	\. s:ui_mode . "fg=" . s:langDefaultString
 execute "highlight apacheOrderValue "
