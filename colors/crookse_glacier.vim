@@ -71,7 +71,7 @@ let s:white  = g:crookse.colorsets.255[s:index]
 let s:yellow = g:crookse.colorsets.227[s:index]
 
 " Default language colors
-let s:langDefaultCursor        = g:crookse.colorsets.012[s:index]
+let s:langDefaultCursor        = g:crookse.colorsets.232[s:index]
 let s:langDefaultDataTypeDefFg = g:crookse.colorsets.074[s:index]
 let s:langDefaultDefiner       = g:crookse.colorsets.074[s:index]
 let s:langDefaultDivider       = g:crookse.colorsets.024[s:index]
@@ -84,7 +84,7 @@ let s:langDefaultOperator      = g:crookse.colorsets.255[s:index]
 let s:langDefaultString        = g:crookse.colorsets.222[s:index]
 let s:langDefaultVariableFg    = g:crookse.colorsets.203[s:index]
 
-let s:commentFg     = g:crookse.colorsets.009[s:index]
+let s:commentFg     = g:crookse.colorsets.238[s:index]
 let s:commentTodoFg = g:crookse.colorsets.255[s:index]
 let s:commentTodoBg = g:crookse.colorsets.199[s:index]
 let s:jsObjectKey   = g:crookse.colorsets.074[s:index]
@@ -102,6 +102,10 @@ execute 'highlight Delimiter '
 "// APACHE /////////////////////////////////////////////////////////////////////////////////////////
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 
+execute "highlight apacheAnything "
+	\. s:ui_mode . "fg=" . s:langDefaultString
+execute "highlight apacheComment "
+	\. s:ui_mode . "fg=" . s:commentTodoBg
 execute "highlight apacheString "
 	\. s:ui_mode . "fg=" . s:langDefaultString
 execute "highlight apacheOrderValue "
@@ -249,6 +253,8 @@ execute "highlight vimString "
 	\. s:ui_mode . "=none"
 execute "highlight vimSynType "
 	\. s:ui_mode . "fg=" . s:langDefaultString
+execute "highlight vimLineComment "
+	\. s:ui_mode . "fg=" . s:commentFg
 
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 "// CSS ////////////////////////////////////////////////////////////////////////////////////////////
