@@ -551,6 +551,8 @@ execute 'highlight shSetList '
 	\. s:ui_mode . 'fg=' . s:langDefaultVariableFg
 execute 'highlight shDerefSimple '
 	\. s:ui_mode . 'fg=' . s:langDefaultVariableFg
+execute 'highlight shOption '
+	\. s:ui_mode . 'fg=' . s:langDefaultIntegerFg
 
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 "// TYPESCRIPT /////////////////////////////////////////////////////////////////////////////////////
