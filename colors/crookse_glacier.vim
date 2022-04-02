@@ -73,6 +73,7 @@ let s:yellow = g:crookse.colorsets.227[s:index]
 " Default language colors
 let s:langDefaultCursor        = g:crookse.colorsets.232[s:index]
 let s:langDefaultDataTypeDefFg = g:crookse.colorsets.074[s:index]
+let s:langDefaultNerdTreeText  = g:crookse.colorsets.031[s:index]
 let s:langDefaultDefiner       = g:crookse.colorsets.074[s:index]
 let s:langDefaultDivider       = g:crookse.colorsets.024[s:index]
 let s:langDefaultDividerBlue   = g:crookse.colorsets.024[s:index]
@@ -122,9 +123,16 @@ execute "highlight apacheString "
 execute "highlight apacheOrderValue "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index]
 
+execute "highlight Pmenu "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.000[s:index] . " "
+	\. s:ui_mode . "bg=" . g:crookse.colorsets.255[s:index] . " "
+
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 "// VIM ////////////////////////////////////////////////////////////////////////////////////////////
 "///////////////////////////////////////////////////////////////////////////////////////////////////
+
+execute "highlight clear SignColumn "
+	\. s:ui_mode . "fg=" . g:crookse.colorsets.255[s:index] . " "
 
 " Mode: Visual
 
@@ -484,9 +492,6 @@ execute "highlight diffRemoved "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.074[s:index]
 execute "highlight gitcommitDiff "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.237[s:index]
-execute "highlight SignColumn "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.237[s:index]
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.237[s:index]
 
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 "// GO /////////////////////////////////////////////////////////////////////////////////////////////
@@ -514,7 +519,7 @@ execute 'highlight dosiniLabel '
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 
 let s:nerdTreeDirFile = g:crookse.colorsets.255[s:index]
-let s:nerdTreeDir     = s:langDefaultDividerBlue
+let s:nerdTreeDir     = s:langDefaultNerdTreeText
 execute 'highlight NERDTreeDirSlash '
 	\. s:ui_mode . 'fg=' . s:nerdTreeDir
 execute 'highlight NERDTreeDir '
