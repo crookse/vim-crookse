@@ -614,3 +614,5 @@ execute 'highlight yamlKey '
 	\. s:ui_mode . "fg=" . s:langDefaultKeyword
 execute 'highlight yamlBlockMappingKey '
 	\. s:ui_mode . "fg=" . s:langDefaultKeyword
+execute 'highlight yamlNodeTag '
+	\. s:ui_mode . "fg=" . s:white
