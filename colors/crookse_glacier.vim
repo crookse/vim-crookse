@@ -44,6 +44,25 @@ endfunction
 
 call s:UIMode()
 
+function! s:SetColor(item, fg, bg)
+    execute "highlight " . a:item . " "
+        \. s:ui_mode . "fg=" . g:crookse.colorsets[a:fg][s:index] . " "
+        \. s:ui_mode . "bg=" . g:crookse.colorsets[a:bg][s:index] . " "
+        \. s:ui_mode . "=none"
+endfunction
+
+function! s:SetColorFg(item, fg)
+    execute "highlight " . a:item . " "
+        \. s:ui_mode . "fg=" . g:crookse.colorsets[a:fg][s:index] . " "
+        \. s:ui_mode . "=none"
+endfunction
+
+function! s:SetColorBg(item, bg)
+    execute "highlight " . a:item . " "
+        \. s:ui_mode . "bg=" . g:crookse.colorsets[a:bg][s:index] . " "
+        \. s:ui_mode . "=none"
+endfunction
+
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 "// WINDOW BACKGROUND //////////////////////////////////////////////////////////////////////////////
 "///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -71,7 +90,7 @@ let s:white  = g:crookse.colorsets.255[s:index]
 let s:yellow = g:crookse.colorsets.227[s:index]
 
 " Default language colors
-let s:langDefaultCursor        = g:crookse.colorsets.232[s:index]
+let s:langDefaultCursor        = "232"
 let s:langDefaultDataTypeDefFg = g:crookse.colorsets.074[s:index]
 let s:langDefaultNerdTreeText  = g:crookse.colorsets.031[s:index]
 let s:langDefaultDefiner       = g:crookse.colorsets.074[s:index]
@@ -141,25 +160,14 @@ execute 'highlight Visual '
 
 " Mode: Normal
 
-execute "highlight ColorColumn "
-	\. s:ui_mode . "bg=" . s:langDefaultCursor
+call s:SetColorBg("ColorColumn", s:langDefaultCursor)
 " Note: The CursorLine is controlled by iTerm2's setting.
-execute "highlight CursorLine "
-	\. s:ui_mode . "bg=" . s:langDefaultCursor . " "
-	\. s:ui_mode . "=none"
-execute "highlight Folded "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.015[s:index] . " "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.004[s:index] . " "
-	\. s:ui_mode . "=none"
-execute "highlight LineNr "
-	\. s:ui_mode . "fg=" . s:commentFg . " "
-	\. s:ui_mode . "=none"
+call s:SetColorBg("CursorLine", s:langDefaultCursor)
+call s:SetColor("Folded", "015", "004")
+call s:SetColorFg("LineNr", s:commentFg)
 " The MatchParen higlights the opening character and closing character (e.g., opening function
 " bracket and closing function bracket).
-execute "highlight MatchParen "
-	\. s:ui_mode . "fg=" . g:crookse.colorsets.232[s:index] . " "
-	\. s:ui_mode . "bg=" . g:crookse.colorsets.197[s:index] . " "
-	\. s:ui_mode . "=none"
+call s:SetColor("MatchParen", "232", "197")
 execute "highlight NonText "
 	\. s:ui_mode . "fg=" . g:crookse.colorsets.236[s:index] . " "
 	\. s:ui_mode . "=none"
@@ -610,9 +618,6 @@ execute 'highlight typescriptPrototype '
 "// YAML ///////////////////////////////////////////////////////////////////////////////////////////
 "///////////////////////////////////////////////////////////////////////////////////////////////////
 
-execute 'highlight yamlKey '
-	\. s:ui_mode . "fg=" . s:langDefaultKeyword
-execute 'highlight yamlBlockMappingKey '
-	\. s:ui_mode . "fg=" . s:langDefaultKeyword
-execute 'highlight yamlNodeTag '
-	\. s:ui_mode . "fg=" . s:white
+call s:SetColorFg("yamlKey", s:langDefaultKeyword)
+call s:SetColorFg("yamlBlockMappingKey", s:langDefaultKeyword)
+call s:SetColorFg("yamlNodeTag", s:white)
